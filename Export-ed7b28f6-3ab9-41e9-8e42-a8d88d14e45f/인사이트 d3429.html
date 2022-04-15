@@ -1,0 +1,689 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>인사이트</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="21d3b572-be25-49c3-8991-13ab5f280869" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">💡</span></div><h1 class="page-title">인사이트</h1></header><div class="page-body"><p id="66c32b64-ba99-4e7c-bc05-94a3aa9bf4b3" class="">
+</p><nav id="3ac3294c-ab1f-4e24-9536-6cfb2186c663" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a62e9466-1a10-4360-a8ac-d071f3ec4a7d">❌ 취소 분석</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ea5e97b3-79d4-4abd-bdd3-3849ba433a4c">💸 결제 유형별 취소</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a0ea5916-2d80-4229-81b5-950a9f0e05a7">⏰ 시간대별 취소</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#78f6766d-bfa6-42dd-8499-7ce7607058bd">🥐 빵 종류별 취소율</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#60723e8b-ea3b-49a1-ab60-e54333bf128b">💲 매출 분석</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#24388a5f-2187-46bd-8f86-48c87f53ca78">🏷️ 할인과 매출</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7cc27411-352d-4acf-96bb-b7c75c90df59">🥨 빵 종류별 매출</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ab5fbcda-7ead-4fb7-af99-b1566b83bb97">⏳ 기간별 매출</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#6f6020b5-4e7e-4825-8b20-9f42cc746e25"><mark class="highlight-yellow_background">📅 일별 매출</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#541dfc27-b154-43aa-bfba-091009b6e95a"><mark class="highlight-yellow_background">🗓️ 월별 매출</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#336df90e-6713-452e-a008-f193573ef038"><mark class="highlight-yellow_background">📚 분기별 매출</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#f7419c81-4b6a-4a76-bce4-574986f57a75"><mark class="highlight-yellow_background">⏱️ 시간대별 매출</mark></a></div></nav><p id="d1287371-9b64-48b9-89ba-ca9d76e5b566" class="">
+</p><h1 id="a62e9466-1a10-4360-a8ac-d071f3ec4a7d" class="block-color-blue_background">❌ 취소 분석</h1><h2 id="ea5e97b3-79d4-4abd-bdd3-3849ba433a4c" class="block-color-teal_background">💸 결제 유형별 취소</h2><blockquote id="c1240fa9-0488-4447-bb96-c869a5c92aa3" class=""><strong>BANK 취소율: 4.80%
+</strong>CHECK 취소율: 2.61%
+CREDIT 취소율: 3.11%</blockquote><ul id="c1e0371e-7866-4eed-981e-d54f38ec6769" class="bulleted-list"><li style="list-style-type:disc">계좌이체 한 손님의 취소율이 약 1.5% 가량 높음</li></ul><ul id="9aa47f58-7db7-42d5-a466-211e2d8e3d69" class="bulleted-list"><li style="list-style-type:disc">그러나 그 차이가 미미해 큰 의미 없어보임</li></ul><p id="ad8c21d9-e892-46c5-b14f-20047a91615b" class="">
+</p><h2 id="a0ea5916-2d80-4229-81b5-950a9f0e05a7" class="block-color-teal_background">⏰ 시간대별 취소</h2><blockquote id="db1660b3-0916-49b1-9689-f85e575d1aee" class="">DAY 취소율: 2.30%
+MID 취소율: 2.44%
+<strong>EVENING 취소율: 9.78%</strong></blockquote><ul id="d56c2721-5e30-4838-994f-5aeceb6a06d8" class="toggle"><li><details open=""><summary>시간대 분류</summary><p id="21733cb4-b24c-473c-b05f-851726aef155" class=""><strong>DAY</strong>: 12:00 ~ 14:59</p><p id="8b10c102-3a09-48f0-ad9f-5804800fd5ac" class=""><strong>MID</strong>: 15:00 ~ 16:59</p><p id="29004dcb-2376-4ea8-9444-960824e26c41" class=""><strong>EVENING</strong>: 17:00 ~ 20:00</p></details></li></ul><ul id="c98bb4cc-6bde-4a2d-9215-8d523b25c13c" class="bulleted-list"><li style="list-style-type:disc">저녁 시간대에 주문한 손님의 약 10%가 취소함</li></ul><ul id="19a979da-abfc-4082-b28c-07107647b439" class="bulleted-list"><li style="list-style-type:disc">취소율의 차이가 약 7.4%이므로 유의미해 보임</li></ul><p id="b983d13a-22ee-4791-bb2a-e3f29f007499" class="">
+</p><h2 id="78f6766d-bfa6-42dd-8499-7ce7607058bd" class="block-color-teal_background">🥐 빵 종류별 취소율</h2><figure id="d3429086-74ce-49c6-9662-83ae397a7f30" class="image"><a href="%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%90%E1%85%B3%20d3429/Untitled.png"><img style="width:240px" src="%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%90%E1%85%B3%20d3429/Untitled.png"/></a></figure><ul id="d3120a0a-09af-4281-a6d3-0b42afdadb1b" class="bulleted-list"><li style="list-style-type:disc"><strong>크랜베리</strong> 치아바타: 7.62%</li></ul><ul id="f6b22785-a4bf-40f6-b30a-443f6382b6d2" class="bulleted-list"><li style="list-style-type:disc"><strong>크랜베리 </strong>스콘: 7.50%</li></ul><ul id="edafea4e-ad7c-4dba-85b5-9bc36e24cf33" class="bulleted-list"><li style="list-style-type:disc"><strong>크랜베리 빵들의 취소율</strong>이 상대적으로 높음</li></ul><ul id="15986339-e244-4985-a6b3-15b6bffc8181" class="bulleted-list"><li style="list-style-type:disc">우연의 일치일까 의미가 있는 것일까...</li></ul><p id="52bbc305-0827-4b61-a7ff-f64a298ac41a" class="">
+</p><h1 id="60723e8b-ea3b-49a1-ab60-e54333bf128b" class="block-color-blue_background">💲 매출 분석</h1><h2 id="24388a5f-2187-46bd-8f86-48c87f53ca78" class="block-color-teal_background">🏷️ 할인과 매출</h2><figure id="73d15f7e-a5e5-43e3-98a7-c17de7e4bd40" class="image"><a href="%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%90%E1%85%B3%20d3429/Untitled%201.png"><img style="width:1185px" src="%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%90%E1%85%B3%20d3429/Untitled%201.png"/></a></figure><ul id="d370bd5c-6b5d-48f3-8223-e6d2f95ddf11" class="bulleted-list"><li style="list-style-type:disc">할인금액이 커져도 매출에 큰 차이는 없다</li></ul><ul id="2145273c-8544-4280-bea2-1835f8883541" class="bulleted-list"><li style="list-style-type:disc">그래도 <mark class="highlight-teal"><strong>3000원 이상의 쿠폰</strong></mark>을 주면 <strong>약간의 매출 상승 효과</strong>는 있는 것으로 보임</li></ul><p id="f9e4c571-1154-40c7-a390-4ad98beaf977" class="">
+</p><h2 id="7cc27411-352d-4acf-96bb-b7c75c90df59" class="block-color-teal_background">🥨 빵 종류별 매출</h2><div id="57957b8c-ce17-45cd-b122-dccdcdf3f8ea" class="column-list"><div id="4d6006ce-bea8-4d00-9034-13e9b5051fef" style="width:37.5%" class="column"><figure id="9974174a-0924-4a84-b6b9-09daf549d1f9" class="image"><a href="%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%90%E1%85%B3%20d3429/Untitled%202.png"><img style="width:240px" src="%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%90%E1%85%B3%20d3429/Untitled%202.png"/></a></figure></div><div id="fe218d25-647c-4b14-b9ac-f1ca5d14fe80" style="width:62.5%" class="column"><ul id="756e1121-e34b-4f38-9e5b-190c3acffc24" class="bulleted-list"><li style="list-style-type:disc">매출이 적은 빵들 중에는 하루에 생산되는 양이 적은 것들도 있음<ul id="8fa4c821-6a91-4b96-b33d-898337504f1d" class="bulleted-list"><li style="list-style-type:circle">특히 이런 빵들은 <strong>매장에서 먼저 매진</strong>되거나 <strong>한 두 개가 남아 매진처리</strong>되는 경우가 많으므로 이러한 점을 고려해야함</li></ul></li></ul><ul id="0c556346-e467-4bee-a549-1701eab239c2" class="toggle"><li><details open=""><summary>빵 생산 수량</summary><ul id="1dd3b4d8-cebd-4a1a-a192-18304f56992c" class="bulleted-list"><li style="list-style-type:disc"><strong>보스톡</strong>: 하루 <strong>10개</strong> 내외로 생산됨</li></ul><ul id="84431ee0-a411-4b33-a2fc-d33d78b9706b" class="bulleted-list"><li style="list-style-type:disc"><strong>바게트</strong>: 하루 <strong>8개</strong> 생산됨</li></ul><ul id="89032ec8-2c40-4842-9b44-23ce0df60ac2" class="bulleted-list"><li style="list-style-type:disc"><strong>초코 브리오슈</strong>: 하루 <strong>약 8개</strong> 생산됨</li></ul><ul id="977443b6-57c3-414d-9a04-b77a2fdf21f4" class="bulleted-list"><li style="list-style-type:disc"><strong>라즈베리크럼블</strong>: 하루 <strong>약 8개</strong> 생산됨</li></ul><ul id="f793b26a-aefe-49fd-a862-dccce5e6f719" class="bulleted-list"><li style="list-style-type:disc"><strong>푸가스</strong>: 주중에는 <strong>6개</strong>, 주말에는 <strong>8개</strong> 생산됨</li></ul><ul id="66a92b74-3ada-4b91-a9c7-5da148f4b30c" class="bulleted-list"><li style="list-style-type:disc"><strong>빵드미</strong>: 하루 <strong>7개</strong> 생산됨</li></ul><ul id="f6cdc83c-fa1e-490c-a1a0-6fb0d0be5cb9" class="bulleted-list"><li style="list-style-type:disc"><strong>멀티그레인 빵드미</strong>: 하루 <strong>7개</strong> 생산됨</li></ul><ul id="956ebf61-42b1-4513-8ba4-daae705c7f07" class="bulleted-list"><li style="list-style-type:disc"><strong>통밀빵</strong>: 하루 <strong>4개</strong> 생산됨</li></ul><ul id="c5abfff1-81ed-4e3f-bab4-48127a8dbc98" class="bulleted-list"><li style="list-style-type:disc"><strong>사워도우</strong>: 하루 <strong>2개</strong> 생산됨</li></ul></details></li></ul><ul id="8e7fac76-2941-4ee1-9922-00c81c9bcde5" class="bulleted-list"><li style="list-style-type:disc">이를 고려해도 압도적으로 <em><strong><mark class="highlight-teal">추천 빵</mark></strong></em>들이 많이 팔림</li></ul><ul id="93133333-d4af-4bf9-990c-d03d15e68e12" class="bulleted-list"><li style="list-style-type:disc"><strong>사진</strong>이 있는 빵이 대부분 추천빵이라서 그런건지 <strong><mark class="highlight-teal">사진 있는 빵</mark></strong>들의 주문량이 많음</li></ul><figure id="c6272f5f-3497-4058-bac6-1339983467c1" class="image"><a href="%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%90%E1%85%B3%20d3429/Untitled%203.png"><img style="width:778px" src="%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%90%E1%85%B3%20d3429/Untitled%203.png"/></a></figure><ul id="7b6745e3-2653-46b7-8138-8b50445ad683" class="bulleted-list"><li style="list-style-type:disc">위와 같이 이름이 생소하면서 사진도 없는 빵들의 주문량이 하위권임 <strong>=&gt; </strong><mark class="highlight-teal"><strong>이름이 생소한 빵들에 사진을 추가</strong></mark><strong>해야할 듯</strong></li></ul></div></div><p id="36fc0a54-4909-4cd8-94f9-b4c0c75d38ff" class="">
+</p><ul id="8ab26231-a03c-4d88-9ff5-6e7177dff2aa" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><strong>브리오슈, 라즈베리 크럼블, 바질페스토 스콘</strong></mark> 등은 매장에서는 굉장히 많이 팔리고, 찾는 손님이 많은 빵<ul id="41a792c9-67eb-42a8-b5ec-19721a45c337" class="bulleted-list"><li style="list-style-type:circle">그러나 배달앱에서는 <strong><span style="border-bottom:0.05em solid"><em>상대적으로 주문이 들어오는 수량이 적음</em></span></strong></li></ul></li></ul><ul id="f7bf94fc-b385-4948-ba3a-9cef1572bba1" class="bulleted-list"><li style="list-style-type:disc">뒤에 <strong>할인 금액이 커질수록 매출이 증가</strong>함 &amp; 제이스레시피는 <strong>상점 부담 할인 금액이 없음</strong></li></ul><ul id="701bfc66-f2c9-42ad-8f58-6b3e39919046" class="bulleted-list"><li style="list-style-type:disc">따라서 위의 세 가지 빵들을 <mark class="highlight-red"><em><span style="border-bottom:0.05em solid"><strong>리뷰이벤트</strong></span></em></mark> 등으로 제공하는 것은 어떨까<ul id="23cb7f40-5733-4883-9c00-87cf817cfdb4" class="bulleted-list"><li style="list-style-type:circle">금액적으로 부담이 된다면 <strong>리뷰이벤트 용으로 작게 생</strong>산하거나 적당한 크기로 <strong>컷팅</strong>해서 제공하는 것도 방법인 듯 하다</li></ul></li></ul><ul id="8cd8af2b-e945-4eae-b0d1-9be050557656" class="bulleted-list"><li style="list-style-type:disc">특히, 배달 주문에 있어서 <strong>리뷰의 수가 꽤나 중요한 영향</strong>을 미친다. 그러나 제이스레시피는 약 3년 동안 쿠팡이츠에 입점되어있음에도 <mark class="highlight-teal"><strong>리뷰 수가 약 140개로 적은 편</strong></mark>이다.<ul id="7f63c081-dac7-4b05-8ed2-4365582937a2" class="bulleted-list"><li style="list-style-type:circle">그럼에도 불구하고 리뷰이벤트 등이 없어도 손님들이 자발적으로 좋은 리뷰를 올려주시며 <strong>별점 평균이 5점</strong>이다.</li></ul></li></ul><ul id="f579b175-3744-402e-9b2e-8d7d567c8131" class="bulleted-list"><li style="list-style-type:disc">그러므로 <em><span style="border-bottom:0.05em solid"><mark class="highlight-blue"><strong>리뷰이벤트 등으로 리뷰의 수를 늘린다면 처음 주문하려고 하는 손님들에게 더 신뢰를 주어 매출을 늘릴 수 있을 것</strong></mark></span></em>이라고 생각된다</li></ul><p id="7489c648-9c9f-48ef-a471-a5c90b0cb1ca" class="">
+</p><h2 id="ab5fbcda-7ead-4fb7-af99-b1566b83bb97" class="block-color-teal_background">⏳ 기간별 매출</h2><figure id="9379e34b-89d3-4a50-8096-9b94d8b13d2f" class="image"><a href="%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%90%E1%85%B3%20d3429/Untitled%204.png"><img style="width:883px" src="%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%90%E1%85%B3%20d3429/Untitled%204.png"/></a></figure><ul id="0b9d41a3-9460-42c3-966b-88933b8dc936" class="bulleted-list"><li style="list-style-type:disc">주문량의 뚜렷한 패턴은 없는 것으로 보임</li></ul><p id="4ceafe3b-f9a3-4995-a6e1-7519b8ad0bbc" class="">
+</p><h3 id="6f6020b5-4e7e-4825-8b20-9f42cc746e25" class=""><mark class="highlight-yellow_background">📅 일별 매출</mark></h3><figure id="7512e2f8-70c3-483b-b985-652264fe5f07" class="image"><a href="%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%90%E1%85%B3%20d3429/Untitled%205.png"><img style="width:1182px" src="%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%90%E1%85%B3%20d3429/Untitled%205.png"/></a></figure><ul id="cff5a1cd-c96c-4558-9df3-82829ae82547" class="bulleted-list"><li style="list-style-type:disc">일별 매출로 봤을 때는 추이 파악 어려움</li></ul><p id="0b705360-fb43-423c-b373-a616d01f9d34" class="">
+</p><h3 id="541dfc27-b154-43aa-bfba-091009b6e95a" class=""><mark class="highlight-yellow_background">🗓️ 월별 매출</mark></h3><figure id="9505b87b-d617-491c-87a0-0fd50e8eec35" class="image"><a href="%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%90%E1%85%B3%20d3429/Untitled%206.png"><img style="width:1182px" src="%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%90%E1%85%B3%20d3429/Untitled%206.png"/></a></figure><ul id="ef0d5f73-82ee-4938-9822-fc8516d472a3" class="bulleted-list"><li style="list-style-type:disc">매출이 점차 증가하는 듯 보이긴 하지만 수치를 보면 1000원 내외로 매우 근소한 차이임</li></ul><ul id="9755cd43-1fa9-405c-92e3-e23fa0e1c843" class="bulleted-list"><li style="list-style-type:disc">7월 매출의 감소는 왜?</li></ul><p id="89230977-c6f6-4431-92a5-81fb6effcd0d" class="">
+</p><h3 id="336df90e-6713-452e-a008-f193573ef038" class=""><mark class="highlight-yellow_background">📚 분기별 매출</mark></h3><blockquote id="2ae8ee47-5f5c-4c85-a331-a38c04307bbc" class="">1분기 매출 평균:  16631 원
+2분기 매출 평균:  16675 원
+3분기 매출 평균:  16519 원</blockquote><ul id="3541844b-c2c8-4c1b-95b9-67e4f028ec7f" class="bulleted-list"><li style="list-style-type:disc">역시나 큰 변화 없음</li></ul><p id="58b68dd4-7d2a-4742-a6a4-87b79c50953c" class="">
+</p><h3 id="f7419c81-4b6a-4a76-bce4-574986f57a75" class=""><mark class="highlight-yellow_background">⏱️ 시간대별 매출</mark></h3><blockquote id="17147c7f-b539-4760-8ee6-1b9d3e6abc43" class="">DAY 평균 매출: 16043 원
+MID 평균 매출: 15554 원
+EVENING 평균 매출: 12834 원</blockquote><ul id="65ac1bcd-b476-4be7-916c-4e6db9f66479" class="bulleted-list"><li style="list-style-type:disc"><strong>낮&gt;미들&gt;저녁</strong> 시간 순으로 매출이 감소됨</li></ul><ul id="1189bb09-76dc-4838-b660-6beccb9fe82f" class="bulleted-list"><li style="list-style-type:disc">그런데 빵 양이 저녁이 될수록 줄어 품절되는 경우가 많음</li></ul><ul id="b43c2076-c3ba-45cd-aa45-a39a8f5f9451" class="bulleted-list"><li style="list-style-type:disc">이러한 특징 때문에 매출이 적어지는 것일 수도 있음</li></ul></div></article></body></html>
